@@ -21,7 +21,7 @@ export class Bullet extends WorldObject
         super(bulletImage, worldPos, worldVelocity, worldRotation, spriteScale, 270);
     }
 
-    update = () : void =>
+    update() : void
     {
         //console.log("lifetime " + this.lifeTime + "active: " + this.lifeCycleActive);
         this.lifeTime -= 1/60;

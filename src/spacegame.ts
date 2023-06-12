@@ -5,6 +5,8 @@ import { Bullet } from './bullet.js';
 import { AsteroidFactory, Asteroid } from './asteroid.js';
 import { ExplosionFactory } from './explosion.js';
 
+
+//npx parcel index.html   
 const width = Settings.getInstance().getWorldWidth();
 const height = Settings.getInstance().getWorldHeight();
 const scale = Settings.getInstance().getGameScale();
@@ -33,7 +35,7 @@ class SpaceGame
         this.worldObjects.push(this.player);
     }
     
-    begin = () : void =>
+    begin() : void
     {
         this.previousTimeStamp = Date.now();
         this.currentTimeStamp = Date.now();
@@ -49,7 +51,7 @@ class SpaceGame
         })
     }
 
-    update = () : void =>
+    update() : void
     {
         //console.log("update called\ntimestamp: " + this.currentTimeStamp + "\nframe time: " + this.deltaTime );
         this.ctx.fillStyle = "black";
@@ -129,7 +131,7 @@ class SpaceGame
         }
     }
 
-    tick = () : void =>
+    tick() : void
     {
         this.currentTimeStamp = Date.now();
         this.deltaTime = (this.currentTimeStamp - this.previousTimeStamp) / 1000.0;
@@ -140,7 +142,8 @@ class SpaceGame
         window.requestAnimationFrame(this.tick);
     }
 
-    getCursorPosition(event) {
+    getCursorPosition(event) 
+    {
         const rect = this.canvas.getBoundingClientRect();
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;

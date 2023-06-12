@@ -45,7 +45,7 @@ export class Explosion extends WorldObject
         this.lifeTime = 0.6;
     }
 
-    update = () : void =>
+    update() : void
     {
         this.lifeTime -= 1.0/60.0;
         if ( this.lifeTime < 0 )

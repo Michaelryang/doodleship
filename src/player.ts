@@ -122,7 +122,7 @@ export class Player extends WorldObject
         }
     }
 
-    tryFireBullet = () : Bullet | null =>
+    tryFireBullet() : Bullet | null
     {
         if ( this.canFireBullet)
         {
@@ -136,7 +136,7 @@ export class Player extends WorldObject
         return null;
     }
 
-    update = () : void =>
+    update() : void
     {
         if ( this.isTurningLeft)
         {

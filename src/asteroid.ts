@@ -17,7 +17,7 @@ export class AsteroidFactory
         Settings.getInstance().getWorldWidth(),
         Settings.getInstance().getWorldHeight());
 
-    createAsteroid = (size? : number, worldPos? : Vector2) : Asteroid =>
+    createAsteroid(size? : number, worldPos? : Vector2) : Asteroid
     {
         let asteroidImageIndex = Math.floor(Math.random() * asteroidImages.length);
         let newWorldPos : Vector2;
@@ -81,7 +81,7 @@ export class Asteroid extends WorldObject
         this.rotationSpeed = Math.random() * Settings.getInstance().getMaxAsteroidRotationSpeed() - 2.0 * Settings.getInstance().getMaxAsteroidRotationSpeed();
     }
     
-    splitAsteroid = () : Asteroid[] =>
+    splitAsteroid() : Asteroid[]
     {
         let asteroids : Asteroid[] = [];
         this.endLifeCycle();
@@ -105,7 +105,7 @@ export class Asteroid extends WorldObject
         return asteroids;
     }
 
-    update = () : void => 
+    update() : void
     {
         this.rotation += this.rotationSpeed;
 

@@ -123,31 +123,31 @@ export class Vector2
         }
     }
 
-    add = (vector : Vector2) : void =>
+    add(vector : Vector2) : void
     {
         this.x += vector.x;
         this.y += vector.y;
     } 
 
-    subtract = (vector : Vector2) : void =>
+    subtract(vector : Vector2) : void
     {
         this.x -= vector.x;
         this.y -= vector.y;
     }
 
-    multiplyScalar = (scalar : number ) : void =>
+    multiplyScalar(scalar : number ) : void
     {
         this.x *= scalar;
         this.y *= scalar;
     }
 
-    getSquaredMagnitude = () : number =>
+    getSquaredMagnitude() : number
     {
         return this.x * this.x + this.y * this.y;
     }
 
     // deep copy
-    getVector = () : Vector2 =>
+    getVector() : Vector2
     {
         return new Vector2(this.x, this.y);
     }
@@ -221,23 +221,23 @@ export abstract class WorldObject
 
     }
 
-    isLifeCycleActive = () : boolean => { return this.lifeCycleActive; }
-    getShape = () : WorldObjectShape => { return this.shape; } 
-    getRadius = () : number => { return this.width/2; }
-    getWidth = () : number => { return this.width; }
-    getHeight = () : number => { return this.width; }
-    getPosition = () : Vector2 => { return this.worldPositionCenter; }
-    endLifeCycle = () => { this.lifeCycleActive = false; }
+    isLifeCycleActive = () : boolean => this.lifeCycleActive;
+    getShape = () : WorldObjectShape => this.shape;
+    getRadius = () : number => this.width/2;
+    getWidth = () : number => this.width;
+    getHeight = () : number => this.height;
+    getPosition = () : Vector2 => this.worldPositionCenter;
+    endLifeCycle = () => this.lifeCycleActive = false;
 
     abstract update(): void;
 
-    translate = (translationVector : Vector2) : void =>
+    translate(translationVector : Vector2) : void
     {
         this.worldPositionCenter.add(translationVector);
         this.worldPositionTopLeftCorner.add(translationVector);
     }
 
-    render = (canvas : HTMLCanvasElement) : void =>
+    render(canvas : HTMLCanvasElement) : void
     {
         // console.log("rendering worldobject:\n" + 
         // this.worldPositionTopLeftCorner.x + " " + this.worldPositionTopLeftCorner.y + "\n" +
